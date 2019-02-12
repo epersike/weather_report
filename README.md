@@ -14,6 +14,9 @@ Everything you need is in requirements.txt, just run it like:
 pip install -r requirements.txt
 ```
 
+connexion (and dependencies)
+sqlalchemy (and dependencies)
+
 ## Running the server
 
 1. Install python 3.7 or superior;
@@ -23,13 +26,17 @@ pip install -r requirements.txt
 5. Access ```http://127.0.0.1:5000``` on your web browser;
 6. Track your city's weather by searching it's name;
 
-## Running the tests
+## Testing 
 
-Not quite working yet, but will be like:
+The postman folder inside the package contains Postman's requests and envinroment variables that can be used both to test the application's APIs and the OpenWeather API. Make sure you have imported both and selected the correct envinronment so you can use it. For the ```weather_report``` folder requests, make sure you have the ```main.py``` webserver running.
+
+Unit tests not quite implemented yet, but will be like:
 
 ```
 python tests.py
 ```
+
+Every service implemented will have it's own unit tests.
 
 ## Authors
 
