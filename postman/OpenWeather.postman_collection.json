@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "c296fa63-4359-4812-baa5-c8ecba690224",
+		"name": "OpenWeather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "5 days",
+			"item": [
+				{
+					"name": "By city name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://samples.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid=b6907d289e10d714a6e88b30761fae22",
+							"protocol": "http",
+							"host": [
+								"samples",
+								"openweathermap",
+								"org"
+							],
+							"path": [
+								"data",
+								"2.5",
+								"forecast"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "London,us"
+								},
+								{
+									"key": "mode",
+									"value": "xml"
+								},
+								{
+									"key": "appid",
+									"value": "b6907d289e10d714a6e88b30761fae22"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "weather_report",
+			"item": [
+				{
+					"name": "127.0.0.1:5000/v1.0/weather/?searchString=Blumenau",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/v1.0/weather/?searchString=Blumenau",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"v1.0",
+								"weather",
+								""
+							],
+							"query": [
+								{
+									"key": "searchString",
+									"value": "Blumenau"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
