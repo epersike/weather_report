@@ -1,0 +1,128 @@
+swagger: '2.0'
+# Added by API Auto Mocking Plugin
+#host: virtserver.swaggerhub.com
+host: localhost:5000
+basePath: /v1.0/weather
+schemes:
+ - http
+info:
+  description: 'Documentação das APIs do Weather Report'
+  version: "v1.0"
+  title: 'Weather Report API'
+  contact:
+    email: eltonpersike@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: private
+    description: Secured calls
+  - name: public
+    description: Public operations
+paths:
+  /:
+    get:
+      tags:
+        - private
+      summary: search reports
+      operationId: services.city.web.getReport
+      description: |
+        Retorna reports da cidade solicitada
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: searchString  
+          description: nome da cidade a ser pesquisada
+          required: false
+          type: string
+      responses:
+        '200':
+          description: resultados que atenderem ao critério de entrada
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Report'
+        '204':
+          description: nenhum resultado encontrado
+        '400':
+          description: bad input parameter
+  /{report_id}:
+    get:
+      tags:
+        - private
+      summary: get report by id
+      operationId: services.city.web.getReportByID
+      description: |
+        Retorna dados da previsão
+      parameters:
+        - name: report_id
+          in: path
+          description: Report ID
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: returns report found
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/Report'
+        '204':
+          description: no reports found for given parameters
+        '400':
+          description: bad input parameter
+        
+definitions:
+  Report:
+    type: object
+    required:
+      - id
+      - city_name
+    properties:
+      id:
+        type: integer
+        example: 123
+      date:
+        type: string
+        example: '2019-02-12'
+      temp:
+        type: number
+        format: float
+        example: 23.68
+      temp_min: 
+        type: number
+        format: float
+        example: 23.68
+      temp_max: 
+        type: number
+        format: float
+        example: 29.11
+      weather:
+        type: string
+        example: 'Rain'
+      weather_icon:
+        type: string
+        example: '10d'
+      wind_spd: 
+        type: number
+        format: float
+        example: 0.96
+      wind_dir: 
+        type: number
+        format: float
+        example: 313.003
+  City:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: integer
+        example: 3461316
+      name:
+        type: string
+        format: url
+        example: 'Timbó'
+    
